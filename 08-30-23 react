@@ -1,0 +1,132 @@
+component
+    -react wants you to write reusable code. item in multiple pages can be called again in a different code
+    -get all major elements in a page then split in different files
+    -
+state
+  -WHEN STATE CHANGES YOUR APP RE-render
+  -is a variable with more teachers
+  -whenever we increment we change the value of state the component re renders.
+prop
+
+open folder then type cmd in bar
+npm create vite@latest
+
+name
+framework React
+variant JavaScript
+
+cd projectname
+npm install
+npm run dev
+
+inside the return in app jsx you need a parent container like "<>" "<div>" "<React.Fragment>"
+  -if theres none then error 404
+
+in jsx write plain html code but can be injected with js code wrapped between "{}"
+
+if calling onChange
+
+TERNARY OPERATOR
+  {condition ? true : false}
+
+function App() {
+
+  var age=19;
+  var arr=[1,2,3];
+  return (
+    <>
+    <p>Im sarah</p>
+
+    {age > 18 ? I can't vote : I can vote}
+
+    {arr.map((x)=><p>{x}</p>)}
+    </>
+  )
+}
+
+STYLES SYNTAX 
+    styles={{}}
+      inside quotation marks
+
+COMPONENTS
+!!App.jsx
+import React, { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
+import ButtComp from './components/button'
+
+function App() {
+
+  var age=19;
+  var arr=[1,2,3];
+  return (
+    <>
+    <h1>Im sarah</h1>
+    <p>Hoe are you?</p>
+
+    {arr.map((x)=><p>{x}</p>)}
+
+    <ButtComp/>
+    
+    </>
+  )
+}
+
+export default App
+--
+!!folder- components
+  button.jsx
+  
+function ButtComp()
+    {
+        return(
+            <div onClick={()=>alert("Hello")} style={{width: "100%", height:"50", backgroundColor:"pink"}}>
+                <p style={{color:"white"}}>Submit</p> 
+            </div>
+        )
+    }
+export default ButtComp
+--
+STATE
+import React, { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
+import ButtComp from './components/button'
+
+function App() {
+  const [number, setNumber] = useState(20);
+  var num2=20;
+  var age=19;
+  var arr=[1,2,3];
+
+  const varIncrement=()=>{
+    num2 = num2+1;
+    console.log(num2)
+  }
+  const stateIncrement=()=>{
+    setNumber(number+1);
+  }
+    return (
+    <>
+    <p>Variable</p>
+    <button onClick={varIncrement}>Variable</button>
+    <p>(num2)</p>
+    
+    <p>State: </p>
+    <button onClick={stateIncrement}>State</button>
+    <p>{number}</p>
+    </>
+  )
+}
+
+export default App
+
+SYNTAX OF useState
+                          hook v
+  const[number,setNumber]=useState(20) 
+          v     v                    v
+state name     function that ud     initial value of state 
+
+
