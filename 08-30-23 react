@@ -1,13 +1,18 @@
-component
+COMPONENT
     -react wants you to write reusable code. item in multiple pages can be called again in a different code
     -get all major elements in a page then split in different files
-    -
-state
+    
+STATE
   -WHEN STATE CHANGES YOUR APP RE-render
   -is a variable with more teachers
   -whenever we increment we change the value of state the component re renders.
-prop
 
+PROPS
+    -u want to pass an argument towards a function
+    -props is passing data form 1 parent component to a child component
+    -
+
+!!how to react
 open folder then type cmd in bar
 npm create vite@latest
 
@@ -129,4 +134,55 @@ SYNTAX OF useState
           v     v                    v
 state name     function that ud     initial value of state 
 
+--
 
+PROPS
+import React, { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
+import ButtComp from './components/button'
+import Card from './components/card'
+
+function App() {
+const [input, setInput]=useState("")
+
+const [students,setStudents] = useState(
+  [
+    {name: "say", age: 19, course: "CS"},
+    {name: "dot", age: 19, course: "IT"},
+    {name: "aye", age: 20, course: "CS"}
+  ]
+)
+    return (
+    <>
+
+     {/* {students.map((students,index)=><Card key={index} studentInfo={student}/>)} */}
+      <Card data={students[0]}/>
+      <Card data={students[1]}/>
+      <Card data={students[2]}/>
+
+    </>
+  )
+
+}
+
+export default App
+
+!!CARD
+
+function Card(props){
+    return(
+        <div style={{width:"100%", backgroundColor: "black", margin:5, padding: 5}}>
+            <p style={{color:"white"}}>{props.data.name}</p>
+            <p style={{color:"white"}}>{props.data.age}</p>
+            <p style={{color:"white"}}>{props.data.course}</p>
+            
+            {console.log(props)}
+        </div>
+        
+    )
+    
+}
+
+export default Card
