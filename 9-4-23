@@ -1,0 +1,53 @@
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
+
+function App() {
+  const [count, setInput] = useState("");
+
+  const Stud = [
+    {
+      name : 'Sarah',
+      id : 22102141,
+      age : 19,
+      course : 'BS-IT',
+      nationality : 'PH'
+    },
+    {
+      name : 'Mark, Alfred',
+      id: 22102010,
+      age : 20,
+      course : 'BS-CS',
+      nationality : 'US'
+    },
+    {
+      name : 'Aisha',
+      id : 22101542,
+      age : 19,
+      course : 'BS-IS',
+      nationality : 'AU'
+    },
+    {
+      name : 'Mikee',
+      id : 22102001,
+      age : 18,
+      course : 'BS-IT',
+      nationality : 'PH'
+    },
+  ]
+
+  Stud.filter = ((s)=>input==id) 
+
+
+  return (
+    <>
+      <p>Input student ID#: </p>
+      <input onChange={(e)=>setInput(e.target.value)}></input>
+      
+
+    </>
+  )
+}
+
+export default App
