@@ -2,52 +2,72 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import './Test.css'
 
 function App() {
-  const [count, setInput] = useState("");
+  const [input, setInput] = useState("");
 
   const Stud = [
     {
-      name : 'Sarah',
-      id : 22102141,
-      age : 19,
-      course : 'BS-IT',
-      nationality : 'PH'
+      name: 'Sarah',
+      id: 22102141,
+      age: 19,
+      course: 'BS-IT',
+      nty: 'PH'
     },
     {
-      name : 'Mark, Alfred',
+      name: 'Mark Alfred',
       id: 22102010,
-      age : 20,
-      course : 'BS-CS',
-      nationality : 'US'
+      age: 20,
+      course: 'BS-CS',
+      nty: 'US'
     },
     {
-      name : 'Aisha',
-      id : 22101542,
-      age : 19,
-      course : 'BS-IS',
-      nationality : 'AU'
+      name: 'Aisha',
+      id: 22101542,
+      age: 19,
+      course: 'BS-IS',
+      nty: 'AU'
     },
     {
-      name : 'Mikee',
-      id : 22102001,
-      age : 18,
-      course : 'BS-IT',
-      nationality : 'PH'
+      name: 'Mikee',
+      id: 22102001,
+      age: 18,
+      course: 'BS-IT',
+      nty: 'PH'
     },
   ]
-
-  Stud.filter = ((s)=>input==id) 
 
 
   return (
     <>
       <p>Input student ID#: </p>
-      <input onChange={(e)=>setInput(e.target.value)}></input>
-      
+      <input onChange={(e) => setInput(e.target.value)}></input>
+      {(Stud.filter((s) => input == s.id)).map((d) => {
+        return (
+          <div className='red'>
+            <p>{d.id}</p>
+            <p>{d.name}</p>
+            <p>{d.age}</p>
+            <p>{d.course}</p>
+            <p>{d.nty}</p>
+          </div>
+        )
+
+      }
+      )}
 
     </>
   )
 }
 
 export default App
+
+//css
+
+.red {
+    background-color: rgb(180, 120, 230);
+    border-radius: 10px;
+    padding: 5px;
+    color:rgb(180, 120, 230);
+}
