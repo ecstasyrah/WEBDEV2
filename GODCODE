@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import './des.css'
-import Display from './Display'
+import Display from './Display.jsx'
 import Filter from './Filter'
 
 
@@ -13,51 +13,58 @@ function App() {
   const Stud = [
     {
       name: 'Sarah',
-      id: 22102141,
+      id: 20102141,
       age: 19,
       course: 'BS-IT',
       nty: 'Filipino'
     },
     {
       name: 'Mark Alfred',
-      id: 22102010,
+      id: 22402010,
       age: 20,
       course: 'BS-CS',
       nty: 'American'
     },
     {
       name: 'Aisha',
-      id: 22101542,
+      id: 22131542,
       age: 19,
       course: 'BS-IS',
       nty: 'Australian'
     },
     {
       name: 'Mikee',
-      id: 22102001,
+      id: 12102001,
       age: 18,
       course: 'BS-IT',
       nty: 'Filipino'
     },
+    {
+      name: 'boyo',
+      id: 12152001,
+      age: 19,
+      course: 'BS-IS',
+      nty: 'Chinese'
+    },
   ]
 
 
-  const filteredStud = (Stud.filter((s) => input == s.id)).map((d) => {
-    return (
+  const filteredStud = (Stud.filter((s) => s.id.toString().startsWith(input))).map((d) => {
+    return ( 
       <Filter d={d}></Filter>
     )
   }
   )
 
   return (
-    <>
+    <div>
       <p className='input'>Input student ID#: </p>
 
       <input className='search' onChange={(e) => setInput(e.target.value)}></input>
-
-      {input === '' ? <Display stud={Stud}/> : filteredStud}
-
-    </>
+      <div className='bs'>
+        {input === '' ? <Display stud={Stud}/> : filteredStud}
+      </div>
+    </div>
   )
 }
 
@@ -103,10 +110,12 @@ export default Filter
 
 .red {
     background-color: rgb(230, 148, 175);
-    border-radius: 10px;
-    padding: 5px;
+    border-radius: 25px;
+    padding: 50px;
     color:rgb(8, 2, 14);
     border: solid black;
+    margin: 10px;
+
 }
 
 body{
@@ -136,4 +145,15 @@ body{
     margin: 10px;
     padding: 50px;
     border: solid black;
+    color: black;
+}
+
+.input{
+    color: black;
+}
+
+.bs{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
