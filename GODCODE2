@@ -1,0 +1,196 @@
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
+import './des.css'
+import Display from './Display.jsx'
+import Filter from './Filter'
+
+
+function App() {
+  const [input, setInput] = useState("");
+
+  const Stud = [
+    {
+      name: 'Sarah',
+      id: 20102141,
+      age: 19,
+      course: 'BS-IT',
+      nty: 'Filipino'
+    },
+    {
+      name: 'Mark Alfred',
+      id: 22402010,
+      age: 20,
+      course: 'BS-CS',
+      nty: 'American'
+    },
+    {
+      name: 'Aisha',
+      id: 22131542,
+      age: 19,
+      course: 'BS-IS',
+      nty: 'Australian'
+    },
+    {
+      name: 'Mikee',
+      id: 12102001,
+      age: 18,
+      course: 'BS-IT',
+      nty: 'Filipino'
+    },
+    {
+      name: 'boyo',
+      id: 12152001,
+      age: 19,
+      course: 'BS-IS',
+      nty: 'Chinese'
+    },
+    // {
+    //   name: 'Say',
+    //   id: 18152001,
+    //   age: 20,
+    //   course: 'BS-ED',
+    //   nty: 'Japanese'
+    // },
+    // {
+    //   name: 'Dot',
+    //   id: 21465812,
+    //   age: 18,
+    //   course: 'BS-IT',
+    //   nty: 'Filipino'
+    // },
+    // {
+    //   name: 'boyo',
+    //   id: 12152001,
+    //   age: 19,
+    //   course: 'BS-IS',
+    //   nty: 'Chinese'
+    // },
+  ]
+
+
+  const filteredStud = (Stud.filter((s) => s.id.toString().startsWith(input))).map((d) => {
+    return ( 
+      <Filter d={d}></Filter>
+    )
+  }
+  )
+
+  return (
+    <div>
+      <p className='input'>Input student ID#: </p>
+
+      <input className='search' onChange={(e) => setInput(e.target.value)}></input>
+      <div className='bs'>
+        {input === '' ? <Display stud={Stud}/> : filteredStud}
+      </div>
+    </div>
+  )
+}
+
+export default App
+
+!!
+
+
+.red {
+    background-color: rgb(230, 148, 175);
+    border-radius: 25px;
+    padding: 50px;
+    color:rgb(8, 2, 14);
+    border: solid black;
+    margin: 10px;
+
+}
+
+body{
+    background-color: rgb(208, 197, 240);
+    margin: 250px;
+    font-weight: 500;
+    font-size: x-large;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.search{
+    padding: 10px;
+    border-radius: 5px;
+    font-size: x-large;
+    margin: 50px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+    /* @media (min-width: 300px) and (max-width: 600px){
+        .boxin{
+            display: flex;
+            flex-direction: column;
+        }
+    } */
+.boxin{
+    display: flex;
+    flex-direction: row;
+    margin-left: 500px;
+    margin-right: 500px;
+}
+
+.bee{
+    background-color: rgb(206, 179, 199);
+    border-radius: 25px;
+    border: 2px;
+    margin: 10px;
+    padding: 50px;
+    border: solid black;
+    color: black;
+
+}
+
+.input{
+    color: black;
+}
+
+.bs{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+!!
+
+
+function Display({stud}) {
+    return (
+      <div className="boxin">
+        {stud.map((t) => (
+          <div className="bee">
+            <p>{t.id}</p>
+            <p>{t.name}</p>
+          </div>
+        )
+        )}
+      </div>
+    )
+  }
+  export default Display
+
+!!
+
+function Filter({d}) {
+    
+    return (
+        <div className='red'>
+        
+            <p>ID : {d.id}</p>
+            <p>Name : {d.name}</p>
+            <p>Age : {d.age}</p>
+            <p>Course : {d.course}</p>
+            <p>Nationality : {d.nty}</p>
+        </div>
+    )
+}
+
+
+
+export default Filter
+
+!!
+
