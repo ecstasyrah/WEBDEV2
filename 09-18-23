@@ -1,0 +1,61 @@
+import { useState, useEffect } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
+import {testData} from './data'
+
+function App() {
+  const [count, setCount] = useState(0)
+  const [secondCount, setSecondCount] = useState(0)
+
+  const [userData, setUserData] = useState([])
+
+  // useEffect(() => {
+  //   alert("ADD 1");
+  // }) // runs every click
+
+  useEffect(() => {
+    setUserData(testData)
+  }, []) // going to run only once. "initial render"
+
+  // useEffect(() => {
+  //   alert("Side Effect # 3");
+  // }, [count]) //runs when state changes
+
+
+  console.log(testData)
+  return (
+    <>
+      {/* <div classmate="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+
+      </div>
+
+      <div className="card">
+        <button onClick={() => setSecondCount((secondCount) => secondCount + 1)}>
+          Second count is {secondCount}
+        </button>
+
+      </div> */}
+      {userData.map((x) => <p>{x.name}</p>)}
+    </>
+  )
+}
+
+export default App
+
+// dependency array - it is what is going to trigger on the useEffect. the count 
+// component life cycles - mount
+//                       - update
+//                       - unmount
+
+!!
+
+export const testData=[
+    {id : 1, name :"Say"},
+    {id : 2, name :"Dot"},
+    {id : 3, name :"Aisha"},
+    {id : 4, name :"Kayi"},
+]
