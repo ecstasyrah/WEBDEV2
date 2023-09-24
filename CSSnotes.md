@@ -30,3 +30,18 @@ _Example_
   background-image: conic-gradient(from 0deg at center, #ff8a00, #e52e71);
 }
 
+# Insert image
+**1. First, make sure you have the image file you want to use in the same directory as your CSS file.**
+
+**2.In your CSS file, select the element to which you want to add the image. For example, if you want to add the image as a background for the body element, you would write**
+
+> body { background-image: url("image.jpg") }
+
+**3. If you want to control the size, position, and repetition of the background image, you can use additional properties such as background-size, background-position, and background-repeat. For example:**
+
+> body { background-image: url("image.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
