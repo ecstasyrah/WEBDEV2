@@ -7,13 +7,25 @@ _Install like before_
 > 2. npm install react-router-dom
 
 ### 4 components to import on routing dom
-> **Browser Router** - Wraps your entire application, every other component should be inside here
+**Browser Router** 
+> Wraps your entire application, every other component should be inside here
 > 
-> **Routes** - Wrapping multiple routes
+**Routes**  
+> Wrapping multiple routes
 > 
-> **Route** - Carries 2 important element; Path & Element
->
->  **Path** - the URL
+**Route** 
+> Carries 2 important element; Path & Element
+> 
+> **Path** - the URL
+> 
+> **Element** - component that is rendered when a specific route is accessed.
+> 
+**Link**
+> **Link / Navlink** - Anchor tags; difference, Link will have auto class attached. You can point to the active class then pass css with it.
+> 
+> _**Link to=<url>**_
 
-  **Element** - component that is rendered when a specific route is accessed.
-> Link
+## Children Prop
+> default prop accessible by every single user component
+
+**__**
