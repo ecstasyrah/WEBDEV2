@@ -1,0 +1,86 @@
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
+import './des.css'
+import { useEffect } from 'react';
+
+function App() {
+
+  const [students, setStudents] = useState([]);
+  const [person, setPerson] = useState({});
+  
+  useEffect(()=>{
+    fetch('https://my-json-server.typicode.com/troy1129/jsonplaceholder/db')
+    .then((response) => {
+      if(!response.ok){
+        throw new Error('NOT OK');
+      }
+      return response.json()
+    })
+    .then((jsonData) => {
+      setStudents(jsonData.data);
+      console.log(jsonData);
+    })
+    .catch((error) => {
+      console.error('ERROR FETCHING DATA: ', error);
+    });
+  },[]);
+  
+  // const save = onChange((e) =>
+  //   setPerson({...person, id:e.target.value})
+  //   )
+
+  return (
+    <>
+    <div>
+      <h1>Contact Book</h1>
+      <div className='display'>
+      <ul style={{listStyle: "none"}}>
+        {students.map((index)=> (
+          <li key = {index.id}>{index.id}</li>
+        ))}
+      </ul>
+      </div>
+      <div className='input'>
+      <form action="">
+        <input id='id' type="text" placeholder='ID'/>
+        <br />
+        <input id='name' type="text" placeholder='Name' />
+        <br />
+        <input id='age' type="text" placeholder='Age'/>
+        <br />
+        <input id='course' type="text" placeholder='Course'/>
+        <br />
+        <input type="submit" className='button' style={{marginLeft: 10, width: 80}} />
+      </form>
+      </div>
+    </div>
+    </>
+  );
+}
+
+export default App
+
+!!
+
+body{
+    background-image: radial-gradient(circle at top right, #A8DF8E, #FFBFBF);
+}
+
+.input{
+    width: 300px;
+    height: 20px;
+    margin-top: 10px;
+}
+
+.display{
+    background-color: #ffe5e55e;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-right: 36px;
+    border-radius: 10px;
+    border: solid #F3FDE8;
+}
+  
