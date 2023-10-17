@@ -1,0 +1,46 @@
+Web Dev 2 Midterms
+Create a Webpage using ReactJS for a Bus Queue and Loading System.
+The Webpage will have a Queue of Passengers with their Name, and ID, together with a List of
+possible destinations to choose from, and their prices.
+When a destination is chosen the Passenger will be moved to the Corresponding Bus that will
+cater to that Specific Destination, and then removed from the Queue. After moving to the
+corresponding bus, the Total Sales will increment based on the price of the Destination the
+Passenger picked.
+The Initial List of Passengers will be found in the API:
+https://my-json-server.typicode.com/troy1129/jsonplaceholder/passengers
+While the List of Destinations and their corresponding prices will be found in the API:
+https://my-json-server.typicode.com/troy1129/jsonplaceholder/destinations
+You are also given the option to remove the added passenger in the bus. Then the bus can only
+have a maximum of 5 passengers.
+Bus 1 will cater to Passengers with the Destination of Cebu and Mandaue
+Bus 2 will cater to Passengers with the Destination of Lilo-an and Lapu-Lapu
+Bus 3 will cater to Passengers with the Destination of Consolacion and Talisay
+You have full freedom when it comes to the design and look of the Web Page.
+Sample output:
+https://web2mid.vercel.app/
+Sample output is meant only to showcase the functionality you need to implement, you are not
+required/advised to recreate the style and layout of the app. Design of the webpage will also be
+taken into consideration for grading, so design the page how you see fit.
+Submission format:
+● Project name: FamilyName + Group Number – Midterms
+o Sample: Belarmino1-Midterms
+● Put your project inside the WebDev2Midterms in your drive in our server.
+Scoring:
+Scale:
+Very Good Good Satisfactory Not
+Satisfactory
+No Output
+1.0 1.5 2.0 3.0 5.0
+Rubrics:
+Rate
+Features & Functionalities (70%)
+● API Call to both Endpoints
+● Display All Passengers from API
+● Add Passenger through the Form
+● Display Destinations from the Destinations Endpoint
+● Transfer from Queue to Bus based on Picked Destination
+● Bus properly displays its passengers
+Use of Clean code, dividing pages into meaningful components.
+(15%)
+Design (15%)
+Total
